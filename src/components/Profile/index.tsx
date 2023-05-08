@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useContext } from 'react'
 
 import {
   ContentContainer,
@@ -17,39 +17,10 @@ import {
   faUserGroup,
 } from '@fortawesome/free-solid-svg-icons'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
-
-import { api } from '../../lib/axios'
-
-interface UserProfile {
-  avatarUrl: string
-  name: string
-  bio: string
-  url: string
-  login: string
-  company: string
-  followers: number
-}
+import { BlogContext } from '../../contexts/BlogContext'
 
 export function Profile() {
-  const [user, setUser] = useState<UserProfile | null>(null)
-
-  async function fetchUserProfile() {
-    const { data } = await api.get(`/users/skelclique`)
-
-    setUser({
-      avatarUrl: data.avatar_url,
-      bio: data.bio,
-      company: data.company,
-      followers: data.followers,
-      login: data.login,
-      name: data.name,
-      url: data.html_url,
-    })
-  }
-
-  useEffect(() => {
-    fetchUserProfile()
-  }, [])
+  const { user } = useContext(BlogContext)
 
   if (!user) {
     return <Loading />
@@ -71,7 +42,7 @@ export function Profile() {
           <p>{bio}</p>
           <StatsContainer>
             <div>
-              <FontAwesomeIcon icon={faGithub} fontSize="1.125rem" />
+              <FontAwesomeIcon icon={faGithub} fontSize="1.5rem" />
               <span>{login}</span>
             </div>
             {company && (

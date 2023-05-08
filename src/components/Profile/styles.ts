@@ -1,8 +1,6 @@
 import styled from 'styled-components'
 
 export const ProfileContainer = styled.div`
-  width: 100%;
-  max-width: 864px;
   height: 212px;
   margin: 0 auto;
   padding: 2rem 2.5rem;
@@ -45,18 +43,20 @@ export const InfoContainer = styled.div`
     a {
       display: flex;
       height: min-content;
-      padding: 0.25rem;
-      border-radius: 4px;
+
+      padding-bottom: 0.5rem;
       gap: 0.5rem;
+
       line-height: 1;
       text-decoration: none;
       color: ${(props) => props.theme.blue};
+
       font-size: 0.75rem;
       font-weight: bold;
+      border-bottom: 1px solid transparent;
 
       &:hover {
-        color: #338aff;
-        transition: color 0.2s;
+        border-color: ${(props) => props.theme.blue};
       }
     }
   }
@@ -78,6 +78,10 @@ export const StatsContainer = styled.div`
 
     span {
       color: ${(props) => props.theme['base-text']};
+    }
+
+    svg {
+      color: ${(props) => props.theme['base-label']};
     }
   }
 `

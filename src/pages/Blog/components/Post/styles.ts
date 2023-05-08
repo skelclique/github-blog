@@ -5,11 +5,19 @@ export const PostContainer = styled.section`
   background: ${(props) => props.theme['base-post']};
   border-radius: 10px;
   padding: 2rem;
+  cursor: pointer;
+
+  border: 2px solid transparent;
+
+  &:hover {
+    border-color: ${(props) => props.theme['base-label']};
+    transition: border-color 0.1s;
+  }
 
   header {
     display: flex;
-    gap: 1rem;
     margin-bottom: 1.25rem;
+    gap: 1rem;
 
     h1 {
       font-size: 1.25rem;
@@ -18,11 +26,8 @@ export const PostContainer = styled.section`
 
     span {
       font-size: 0.875rem;
+      line-height: 2.3;
       color: ${(props) => props.theme['base-span']};
     }
-  }
-
-  p {
-    text-overflow: ellipsis;
   }
 `

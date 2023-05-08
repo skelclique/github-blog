@@ -1,16 +1,6 @@
 import styled from 'styled-components'
 
-export const BlogContainer = styled.div``
-
-export const Cover = styled.header`
-  background: url(/src/assets/header-cover.svg) center center / cover no-repeat;
-  height: 100%;
-  min-height: 296px;
-`
-
 export const PostsContainer = styled.div`
-  width: 100%;
-  max-width: 864px;
   margin: 4.5rem auto;
 
   main {
@@ -19,4 +9,24 @@ export const PostsContainer = styled.div`
     flex-wrap: wrap;
     gap: 2rem;
   }
+`
+
+export const LoadingContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  svg {
+    color: ${(props) => props.theme.blue};
+  }
+`
+
+export const NotFoundContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  color: ${(props) => props.theme['base-text']};
 `
